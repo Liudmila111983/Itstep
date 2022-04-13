@@ -140,14 +140,14 @@ select (julianday('now') - julianday(date)) from incident_reports;
 -- 13. Посчитать какая дата была через 3 дня после поступления сообщения о происшествии.
 select date(date, '+3 days') from incident_reports;
 
--- 14. Посчитать сколько дел было открыто по сообщениям, поступившим в 2021 году.
+-- 14. Посчитать, сколько дел было открыто по сообщениям, поступившим в 2021 году.
 -- Столбец назвать count.
 select count(*) as count from solution as s
 inner join incident_reports as i on s.incident_id = i.incident_id
 where s.status_id = 2
 and i.date like '2021%';
 
--- 15. Выввести уникальную информацию (описание) о типе происшествия из таблицы incident_reports.
+-- 15. Вывести уникальную информацию (описание) о типе происшествия из таблицы incident_reports.
 select distinct t.description
 from incident_reports as i 
 inner join type_of_incident as t on t.type_id = i.type_id;
